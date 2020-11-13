@@ -10,9 +10,15 @@ const server = app.listen(4000, () => {
     console.info(`listening for requests on port ${PORT}`);
 });
 
-const io = socket(server, {
+// const io = socket(server, {
+//     cors: true,
+//     transports: ['polling'],
+//     origins: ['http://192.168.0.12:*', "http://localhost:*", "https://sazzle-server.herokuapp.com/*", 'https://sazzle-server.herokuapp.com/socket.io/'],
+//    });
+
+   const io = socket(server, {
     cors: true,
-    transports: ['polling'],
+    transports: ['websocket'],
     origins: ['http://192.168.0.12:*', "http://localhost:*", "https://sazzle-server.herokuapp.com/*", 'https://sazzle-server.herokuapp.com/socket.io/'],
    });
 
