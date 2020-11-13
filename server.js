@@ -13,7 +13,7 @@ const server = app.listen(4000, () => {
 const io = socket(server, {
     cors: true,
     transports: ['polling'],
-    origins: ["http://localhost:4000", "https://sazzle-server.herokuapp.com"],
+    origins: ["http://localhost:3000", "http://localhost:4000", "https://sazzle-server.herokuapp.com", 'https://sazzle-server.herokuapp.com/socket.io/'],
    });
 
 io.on('connection', (socket) => {
