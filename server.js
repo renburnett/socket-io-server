@@ -10,12 +10,12 @@ const server = app.listen(4000, () => {
     console.info(`listening for requests on port ${PORT}`);
 });
 
-const io = socket(server, { log: false, origins: '*:*', transports: ['xhr-polling'] });
-
-// io.configure(() => { 
-//     io.set("transports", ["xhr-polling"]); 
-//     io.set("polling duration", 10);
-//   });
+// const io = socket(server, { log: false, origins: '*:*', transports: ['polling'] });
+const io = socket(server, {
+    cors: true,
+    transports: ['polling'],
+    origins: ["http://localhost:4000", "https://sazzle-server.herokuapp.com"],
+   });
 
 io.on('connection', (socket) => {
     console.info('socket connection successful', socket.id);
