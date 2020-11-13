@@ -1,12 +1,21 @@
 const express = require('express');
 const socket = require('socket.io');
+const cors = require('cors');
 const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(cors());
 
 const server = app.listen(4000, () => {
-    console.log('listening for requests on port 4000,');
+    console.info(`listening for requests on port ${PORT}`);
 });
 
-const io = socket(server);
+const io = socket(server, { log:false, origins:'*:*' });
+
+// io.configure(() => { 
+//     io.set("transports", ["xhr-polling"]); 
+//     io.set("polling duration", 10);
+//   });
 
 io.on('connection', (socket) => {
     console.info('socket connection successful', socket.id);
