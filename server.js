@@ -10,7 +10,7 @@ const server = app.listen(4000, () => {
     console.info(`listening for requests on port ${PORT}`);
 });
 
-const io = socket(server, { log: false, origins: '*:*', transports: ['websocket', 'xhr-polling'] });
+const io = socket(server, { log: false, origins: '*:*', transports: ['xhr-polling'] });
 
 // io.configure(() => { 
 //     io.set("transports", ["xhr-polling"]); 
