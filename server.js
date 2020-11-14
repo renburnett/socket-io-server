@@ -2,13 +2,14 @@ const express = require('express');
 const socket = require('socket.io');
 const cors = require('cors');
 const app = express();
+const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 
 app.get('/', (req, res, next) => {res.send('<p> socket.io server running. . . </p>')})
 
-const server = app.listen(4000, () => {
-    console.info(`listening for requests on port 4000`);
+const server = app.listen(PORT, () => {
+    console.info(`listening for requests on port ${PORT}`);
 });
 
 const io = socket(server, {
