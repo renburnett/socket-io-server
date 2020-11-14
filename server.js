@@ -15,7 +15,7 @@ const server = app.listen(PORT, () => {
 const io = socket(server, {
     cors: true,
     transports: ['polling'],
-    origins: ['http://192.168.0.12:*', 'http://localhost:*', 'https://sazzle-server.herokuapp.com/*', 'https://sazzle-server.herokuapp.com/socket.io/'],
+    origins: [ 'http://localhost:*', 'https://sazzle-server.herokuapp.com/*', 'https://sazzle-server.herokuapp.com/socket.io/'],
 });
 
 io.on('connection', (socket) => {
